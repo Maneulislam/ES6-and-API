@@ -28,4 +28,62 @@ const displayPost = (posts) => {
     }
 }
 
-handlePost();
+
+
+
+// Async Await with Try Catch
+
+const handleAsync = async () => {
+
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+        const data = await response.json();
+    }
+    catch {
+        console.log("Error");
+    }
+}
+
+handleAsync();
+
+
+
+// create fetch
+
+
+const fetchData = () => {
+    return new Promise((resolve, reject) => {
+        const status = true;
+
+        if (status) {
+            const mockData = {
+                json: () => Promise.resolve({ name: "hero" })
+            };
+            resolve(mockData);
+        }
+        else {
+            reject("Error")
+        }
+    })
+}
+
+fetchData()
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(error => console.log(error))
+
+
+
+
+// set Interval
+
+
+let count = 0;
+const interval = setInterval(() => {
+    count++;
+    // console.log(count);
+
+    if (count >= 5) {
+        clearInterval(interval)
+    }
+}, 1000)
