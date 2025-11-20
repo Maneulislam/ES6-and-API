@@ -41,7 +41,7 @@ const displayFromLocalStorage = () => {
     const products = getProductFromStorage();
 
     for (const product in products) {
-        handleAdd(product, product[product]);
+        handleAdd(product, products[product]);
     }
 }
 
